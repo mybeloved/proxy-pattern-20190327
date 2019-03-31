@@ -1,3 +1,4 @@
+import net.sf.cglib.core.DebuggingClassWriter;
 import org.junit.Test;
 import proxypattern.cglibproxy.CglibMeiPo;
 import proxypattern.cglibproxy.Customer;
@@ -12,6 +13,9 @@ public class CglibTest {
 	
 	@Test
 	public void TestCglib() throws Exception {
+		
+		System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "E://cglib_proxy_classes");
+		
 		Customer instance = (Customer) new CglibMeiPo().getInstance(Customer.class);
 		instance.findLove();
 	}
